@@ -1,9 +1,10 @@
 **brtlvrs-psfunc**
 Repository of powershell functions written by brtlvrs.
 The functions can be used in other scripts by dot sourcing them from a sub folder.
-See my Powershell template script for a full example.
+See my Powershell template script for a full example
 
-### LICENSE
+# LICENSE
+
 This functions are released under the MIT license. See the License file for more details
 
 | | |
@@ -11,21 +12,37 @@ This functions are released under the MIT license. See the License file for more
 | Version | 0.0|
 | branch | master|
 
-### CHANGE LOG
+# CHANGE LOG
+
 |build|branch |  Change |
 |---|---|---|
 |0.0| Master| Initial release|
 
-### How do I get set up?  
-1. Download script
-2. Modify parameters in parameters.ps1
-3. (optional) If folder structure is already in place, put VIBS in the vib subfolder of the image profile folder
-3. run script
-(scrip will ask to place VIBS, if vibs are not found and create subfolder structure if needed.)
+# How to set up
 
+1. create a subfolder functions in the root of the script you want to use these functions in
+1. copy the desired functions to the subfolder.
+1. add in the start of your script  the code below (preferably in the begin {} secion
+)
+1. use the functions in your script
 
+```powershell
+begin {
+
+	 # Gather all functions
+    $Functions  = @(Get-ChildItem -Path ($scriptpath+"\"+$P.FunctionsSubFolder) -Filter *.ps1 -ErrorAction SilentlyContinue)
+
+    # Dot source the functions
+    ForEach ($File in @($Functions)) {
+        Try {
+            . $File.FullName
+        } Catch {
+            Write-Error -Message "Failed to import function $($File.FullName): $_"
+        }
+}
+```
+Note: in this example we assume that the scripts uses a parameter.ps1 file which is loaded in the ```$p.``` variable. If you don't want that, replace the ```"\"+$p.FunctionsSubFolder``` with ```"\functions"```.
 
 #### Dependencies
 
 	- PowerShell 3.0
-	- PowerCLI > 5.x
