@@ -17,6 +17,7 @@ This functions are released under the MIT license. See the License file for more
 
 |build|branch |  Change |
 |---|---|---|
+|0.0| Master| Rewrote exit-script function|
 |0.0| Master| Initial release|
 
 ## How to set up
