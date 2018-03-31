@@ -30,7 +30,7 @@ This functions are released under the MIT license. See the License file for more
 ```powershell
 begin {
 
-	 # Gather all functions
+    # Gather all functions
     $Functions  = @(Get-ChildItem -Path ($scriptpath+"\"+$P.FunctionsSubFolder) -Filter *.ps1 -ErrorAction SilentlyContinue)
 
     # Dot source the functions
@@ -42,6 +42,7 @@ begin {
         }
 }
 ```
+
 Note: in this example we assume that the scripts uses a parameter.ps1 file which is loaded in the ```$p.``` variable. If you don't want that, replace the ```"\"+$p.FunctionsSubFolder``` with ```"\functions"```.
 
 ## Dependencies
