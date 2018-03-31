@@ -1,9 +1,10 @@
-**brtlvrs-psfunc**
+# brtlvrs-psfunc
+
 Repository of powershell functions written by brtlvrs.
 The functions can be used in other scripts by dot sourcing them from a sub folder.
 See my Powershell template script for a full example
 
-# LICENSE
+## LICENSE
 
 This functions are released under the MIT license. See the License file for more details
 
@@ -12,13 +13,13 @@ This functions are released under the MIT license. See the License file for more
 | Version | 0.0|
 | branch | master|
 
-# CHANGE LOG
+## CHANGE LOG
 
 |build|branch |  Change |
 |---|---|---|
 |0.0| Master| Initial release|
 
-# How to set up
+## How to set up
 
 1. create a subfolder functions in the root of the script you want to use these functions in
 1. copy the desired functions to the subfolder.
@@ -43,6 +44,6 @@ begin {
 ```
 Note: in this example we assume that the scripts uses a parameter.ps1 file which is loaded in the ```$p.``` variable. If you don't want that, replace the ```"\"+$p.FunctionsSubFolder``` with ```"\functions"```.
 
-#### Dependencies
+## Dependencies
 
-	- PowerShell 3.0
+- PowerShell 3.0
